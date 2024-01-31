@@ -1,7 +1,8 @@
-package catalog
+package main
 
 import (
 	"database/sql"
+	"fmt"
 	"net/http"
 
 	"github.com/devfullcycle/imersao17/goapi/internal/database"
@@ -41,5 +42,6 @@ func main() {
 	c.Get("/product/category/{categoryID}", webProductHandler.GetProductByCategoryId)
 	c.Post("/product", webProductHandler.CreateProduct)
 
-	http.ListenAndServe(":8000", c)
+	fmt.Println("Server is running on port 8080!")
+	http.ListenAndServe(":8080", c)
 }
